@@ -1,0 +1,70 @@
+{
+  "name": "vscode-ai-commit-generator",
+  "displayName": "AI Commit & Changelog Generator",
+  "description": "Generate semantic Conventional Commit messages and changelogs from staged Git diffs using AI.",
+  "version": "1.0.0",
+  "publisher": "Shokun123",
+  "engines": {
+    "vscode": "^1.80.0",
+    "node": ">=18.0.0"
+  },
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
+  "keywords": [
+    "git",
+    "commit",
+    "ai",
+    "conventional-commits",
+    "changelog",
+    "productivity"
+  ],
+  "main": "./src/extension.js",
+  "type": "module",
+  "activationEvents": [
+    "onCommand:aiCommit.generate",
+    "onCommand:aiCommit.changelog",
+    "onCommand:aiCommit.activatePro"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "aiCommit.generate",
+        "title": "AI Commit: Generate Commit Message from Staged Changes",
+        "category": "Git"
+      },
+      {
+        "command": "aiCommit.changelog",
+        "title": "AI Commit: Generate Release Changelog",
+        "category": "Git"
+      },
+      {
+        "command": "aiCommit.activatePro",
+        "title": "AI Commit: Enter Pro License Key (Binance Pay UID: 1049392123)",
+        "category": "Git"
+      }
+    ],
+    "configuration": {
+      "title": "AI Commit Generator",
+      "properties": {
+        "aiCommit.conventionalStyle": {
+          "type": "string",
+          "default": "angular",
+          "enum": ["angular", "gitmoji", "minimal"],
+          "description": "Format style for generated commit messages."
+        },
+        "aiCommit.licenseKey": {
+          "type": "string",
+          "default": "",
+          "description": "Pro license key (Binance UID: 1049392123 verification)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "node --test test/test_extension.js"
+  },
+  "author": "Shokun123",
+  "license": "MIT"
+}
